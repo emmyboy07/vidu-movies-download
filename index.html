@@ -18,20 +18,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #00ffcc;
-      --primary-dark: #00ddb3;
-      --bg: #10151a;
-      --glass: rgba(24,31,31,0.85);
-      --border: #00ffcc44;
-      --shadow: 0 8px 32px 0 #000a;
+      --primary: #3498db;         /* Bright blue */
+      --primary-dark: #2980b9;    /* Darker blue for hover */
+      --bg: #1e1e2f;              /* Dark slate background */
+      --glass: rgba(30, 30, 40, 0.95);  /* Nearly opaque dark overlay */
+      --border: #3498db44;        /* Primary with transparency */
+      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
       --radius: 1.5rem;
-      --input-bg: #181f1f;
-      --input-border: #00ffcc33;
-      --input-focus: #00ffcc88;
-      --text: #fff;
-      --text-muted: #aaa;
-      --accent: #00ffcc;
-      --danger: #ff4d4d;
+      --input-bg: #2c2e3e;        /* Slightly lighter than bg */
+      --input-border: #3498db33;
+      --input-focus: #3498db88;
+      --text: #ffffff;            /* White text */
+      --text-muted: #bdc3c7;      /* Light gray for muted text */
+      --accent: #e74c3c;          /* Accent red color */
+      --danger: #e74c3c;
     }
 
     /* Base responsive setup */
@@ -119,13 +119,14 @@
       background: var(--glass);
       border-radius: 0.7em;
       display: flex;
-      flex-direction: row;
-      align-items: center;
+      flex-direction: column;
       gap: 0.5rem;
+      align-items: center;
     }
     #math-captcha input {
-      width: 80px;
-      padding: 0.3em 0.7em;
+      width: 100%;
+      max-width: 200px;
+      padding: 0.5rem;
       border: 1px solid var(--primary);
       border-radius: 0.4em;
       color: var(--text);
@@ -136,6 +137,10 @@
       border-radius: 0.5em;
       font-weight: 600;
       cursor: pointer;
+    }
+    #math-question {
+      color: #ffffff;
+      font-weight: bold;
     }
 
     /* Download dialog styling */
