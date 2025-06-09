@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://viduapi.com/">
   <meta property="og:image" content="https://viduapi.com/og-image.png">
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="vidu logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -32,21 +32,26 @@
       --accent: #00ffcc;
       --danger: #ff4d4d;
     }
+    /* Base responsive setup */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
     html, body {
-      min-height: 100%;
-      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
+      min-width: 0;
+      width: 100%;
+      overflow-x: hidden;
+      background: var(--bg);
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
+
     body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: stretch;
+      box-sizing: border-box;
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
     header {
       background: transparent;
@@ -228,31 +233,6 @@
     .input-box button:hover {
       background: var(--primary-dark);
     }
-    .quick-btns {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-bottom: 2.5rem;
-      margin-top: 0.5rem;
-      width: 100%;
-      max-width: 1100px;
-    }
-    .quick-btns button {
-      background: #232b2b;
-      color: var(--primary);
-      border: 1.5px solid var(--primary);
-      border-radius: 0.7rem;
-      padding: 0.9rem 1.5rem;
-      font-size: 1.08rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      min-width: 180px;
-    }
-    .quick-btns button:hover {
-      background: var(--primary);
-      color: #181f1f;
-    }
     .dialog {
       margin-top: 2.5rem;
       padding: 2.5rem 2rem;
@@ -384,47 +364,224 @@
       letter-spacing: 1px;
       width: 100%;
     }
-    @media (max-width: 1100px) {
-      .dialog, .docs-section, .about-section, .input-box, .quick-btns, .search-bar {
-        max-width: 98vw;
+    .brand-logo {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 0.5rem;
+      display: block;
+      border-radius: 20%;
+      box-shadow: 0 2px 16px #00ffcc33;
+      background: #fff;
+      object-fit: contain;
+    }
+    /* Responsive styles */
+    /* Mobile-first header */
+    header {
+      padding: 1rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.5rem;
+    }
+
+    .brand {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    nav a {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+
+    /* Search bar mobile optimization */
+    .search-bar {
+      width: 90%;
+      max-width: 600px;
+      margin: 1rem auto;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .search-bar input[type="text"] {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+    }
+
+    .search-bar button {
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1rem;
+    }
+
+    .search-results {
+      width: 100%;
+      left: 0;
+      max-height: 70vh;
+    }
+
+    /* Input box responsiveness */
+    .input-box {
+      width: 90%;
+      max-width: 600px;
+      margin: 1rem auto;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-box input, 
+    .input-box button {
+      width: 100%;
+      min-width: 0;
+      padding: 0.8rem;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Dialog responsiveness */
+    .dialog {
+      width: 90%;
+      margin: 1rem auto;
+      padding: 1rem;
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+    .dialog h3 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem 0;
+    }
+
+    .dialog .link-item {
+      font-size: 0.95rem;
+      margin: 0.7rem 0;
+    }
+
+    /* Math captcha mobile styling */
+    #math-captcha {
+      width: 90%;
+      max-width: 400px;
+      margin: 1rem auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    #math-captcha input {
+      width: 100%;
+      max-width: 200px;
+      padding: 0.5rem;
+    }
+
+    #math-captcha button {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    /* Sections responsiveness */
+    .docs-section,
+    .about-section {
+      width: 90%;
+      margin: 2rem auto;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .docs-section h2,
+    .about-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .docs-section pre {
+      max-width: 100%;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      padding: 0.8rem;
+    }
+
+    .docs-section code {
+      font-size: 0.9rem;
+      word-break: break-word;
+    }
+
+    /* Better spacing for mobile */
+    .section-title {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      padding: 0 1rem;
+    }
+
+    .howto-list {
+      font-size: 1rem;
+      padding: 0 2rem;
+      margin: 1rem 0;
+    }
+
+    /* Responsive media queries */
+    @media (min-width: 768px) {
+      html {
+        font-size: 16px;
+      }
+
+      .search-bar,
+      .input-box {
+        flex-direction: row;
+      }
+
+      .search-bar button,
+      .input-box button {
+        width: auto;
+      }
+
+      nav {
+        gap: 2rem;
+      }
+
+      .brand-logo {
+        width: 64px;
+        height: 64px;
+      }
+
+      .brand {
+        font-size: 2.7rem;
       }
     }
-    @media (max-width: 700px) {
-      .section-title, .docs-section h2, .about-section h2 {
-        font-size: 1.3rem;
+
+    @media (min-width: 1024px) {
+      html {
+        font-size: 18px;
       }
-      .dialog, .docs-section, .about-section {
-        font-size: 1rem;
-        padding: 1.2rem 0.5rem;
+
+      .dialog,
+      .docs-section,
+      .about-section {
+        padding: 2rem;
       }
-      .input-box, .quick-btns, .search-bar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-      }
-      .input-box input, .input-box button, .quick-btns button {
-        min-width: 0;
-        width: 100%;
-      }
-      .search-bar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-        justify-content: center;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 2rem;
-      }
-      .search-bar input[type="text"] {
-        width: 100%;
-        min-width: 0;
-        align-content: center;
-        align-self: center;
-        align-items: center;
-      }
-      .search-results {
-        width: 100vw;
-        left: -10vw;
+    }
+
+    /* Dark mode optimization */
+    @media (prefers-color-scheme: dark) {
+      .search-results,
+      .dialog,
+      .docs-section,
+      .about-section {
+        background: var(--glass);
       }
     }
   </style>
@@ -448,6 +605,7 @@
 </head>
 <body>
   <header>
+    <img src="vidu logo.png" alt="VIDU Logo" class="brand-logo" />
     <div class="brand">VIDU</div>
     <nav>
       <a href="#try" class="active">Try API</a>
@@ -456,10 +614,10 @@
     </nav>
   </header>
   <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search for a movie or TV show...">
-      <button onclick="searchTmdb()">Search</button>
-      <div id="searchResults" class="search-results"></div>
-    </div>
+    <input type="text" id="searchInput" placeholder="Search for a movie or TV show...">
+    <button onclick="searchTmdb()">Search</button>
+    <div id="searchResults" class="search-results"></div>
+  </div>
   <div class="wide-container">
     <div class="section-title">How to Use</div>
     <ol class="howto-list">
@@ -475,18 +633,13 @@
       <input type="text" id="tmdbId" placeholder="e.g. 19995 (Avatar)" autofocus />
       <input type="number" id="season" placeholder="Season (optional)" min="0" />
       <input type="number" id="episode" placeholder="Episode (optional)" min="0" />
-      <button onclick="fetchData()">Download</button>
+      <button onclick="showMathCaptcha()">Download</button>
     </div>
-    <div class="quick-btns">
-      <button type="button" onclick="quickFill('293660')">Deadpool (Movie)</button>
-      <button type="button" onclick="quickFill('603692')">John Wick: Chapter 4 (Movie)</button>
-      <button type="button" onclick="quickFill('157336')">Interstellar (Movie)</button>
-      <button type="button" onclick="quickFill('872585')">Oppenheimer (Movie)</button>
-      <button type="button" onclick="quickFill('100088', '1', '1')">The Last of Us S1E1 (TV)</button>
-      <button type="button" onclick="quickFill('1399', '8', '3')">Game of Thrones S8E3 (TV)</button>
-      <button type="button" onclick="quickFill('66732', '4', '1')">Stranger Things S4E1 (TV)</button>
-      <button type="button" onclick="quickFill('1412', '5', '14')">Arrow S5E14 (TV)</button>
-      <button type="button" onclick="quickFill('456', '1', '1')">Squid Game S1E1 (TV)</button>
+    <div id="math-captcha" style="display:none; margin-bottom:1.2rem; background:var(--glass); border-radius:0.7em; padding:1em; max-width:400px;">
+      <span id="math-question" style="font-weight:bold;"></span>
+      <input type="number" id="math-answer" placeholder="Your answer" style="margin:0 0.5em; border-radius:0.4em; border:1px solid var(--primary); padding:0.3em 0.7em; width:80px;">
+      <button onclick="validateMathCaptcha()" style="background:var(--primary);color:#000;border:none;border-radius:0.5em;padding:0.4em 1em;font-weight:600;cursor:pointer;">OK</button>
+      <span id="math-error" style="color:var(--danger);margin-left:1em;"></span>
     </div>
     <div class="dialog" id="dialog">
       <div id="spinner" class="spinner" style="display:none;"></div>
@@ -601,74 +754,61 @@
     <span style="font-size:0.95em;color:#00ffcc;">Share: <a href="https://twitter.com/intent/tweet?text=Check%20out%20VIDU%20API%20for%20free%20movie%20and%20TV%20download%20links%20with%20subtitles!%20https://viduapi.com/" target="_blank" rel="noopener" style="color:var(--primary);">Twitter/X</a> | <a href="https://www.facebook.com/sharer/sharer.php?u=https://viduapi.com/" target="_blank" rel="noopener" style="color:var(--primary);">Facebook</a></span>
   </footer>
   <script>
+    // --- Anti-scrape math captcha (only positive answers) ---
+    let mathAnswer = 0;
+    let mathSolved = false;
+    function showMathCaptcha() {
+      // Only allow positive answers
+      let a = Math.floor(Math.random() * 10) + 1;
+      let b = Math.floor(Math.random() * 10) + 1;
+      let op = Math.random() > 0.5 ? '+' : '-';
+      if (op === '-' && b > a) [a, b] = [b, a]; // Ensure a >= b for subtraction
+      mathAnswer = op === '+' ? a + b : a - b;
+      document.getElementById('math-question').textContent = `What is ${a} ${op} ${b}?`;
+      document.getElementById('math-answer').value = '';
+      document.getElementById('math-error').textContent = '';
+      document.getElementById('math-captcha').style.display = 'block';
+      mathSolved = false;
+    }
+    function validateMathCaptcha() {
+      const userAns = Number(document.getElementById('math-answer').value);
+      if (userAns === mathAnswer) {
+        document.getElementById('math-captcha').style.display = 'none';
+        mathSolved = true;
+        fetchData();
+      } else {
+        document.getElementById('math-error').textContent = 'Incorrect, try again!';
+        mathSolved = false;
+      }
+    }
+    // Always require captcha before any request
+    function requireCaptchaThen(fn) {
+      if (!mathSolved) {
+        showMathCaptcha();
+      } else {
+        fn();
+      }
+    }
+    // Prevent Enter key from submitting Download before captcha
     document.getElementById("tmdbId").addEventListener("keydown", function (e) {
-      if (e.key === "Enter") fetchData();
+      if (e.key === "Enter") showMathCaptcha();
+    });
+    // --- END math captcha ---
+
+    // Remove rate limit note from docs
+    document.addEventListener("DOMContentLoaded", function() {
+      const notes = document.querySelectorAll('.docs-section ul li');
+      notes.forEach(li => {
+        if (li.textContent.includes('Rate limit')) li.style.display = 'none';
+      });
     });
 
-    // Remove duplicate subtitles by lan+url
-    function uniqueSubtitles(subs) {
-      const seen = new Set();
-      return subs.filter(sub => {
-        const key = (sub.lan || '') + (sub.url || '');
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
-    }
-
-    async function fetchTmdbInfo(tmdbId, season, episode) {
-      const apiKey = '4047600e7b714de665db30e862139d92';
-      let type = 'movie';
-      let data = null;
-
-      // Treat season=0 and episode=0 as movie
-      if ((season && episode) && (season !== "0" && episode !== "0")) {
-        type = 'tv';
-        let url = `https://api.themoviedb.org/3/tv/${tmdbId}?api_key=${apiKey}`;
-        data = await fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
-
-        if (!data || data.status_code === 34) return null;
-
-        let title = data.name || 'Unknown Title';
-        let year = (data.first_air_date || '').slice(0, 4);
-
-        // Fetch episode info
-        const epUrl = `https://api.themoviedb.org/3/tv/${tmdbId}/season/${season}/episode/${episode}?api_key=${apiKey}`;
-        const epData = await fetch(epUrl).then(r => r.ok ? r.json() : null).catch(() => null);
-        if (epData && epData.name) {
-          title = `${data.name} - S${season}E${episode}: ${epData.name}`;
-          year = (epData.air_date || '').slice(0, 4) || year;
-        } else {
-          title = `${data.name} - S${season}E${episode}`;
-        }
-        return { title, year };
-      }
-
-      // Otherwise, treat as movie
-      let url = `https://api.themoviedb.org/3/movie/${tmdbId}?api_key=${apiKey}`;
-      data = await fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
-
-      if (!data || data.status_code === 34) {
-        // Not a movie, try TV
-        url = `https://api.themoviedb.org/3/tv/${tmdbId}?api_key=${apiKey}`;
-        type = 'tv';
-        data = await fetch(url).then(r => r.ok ? r.json() : null).catch(() => null);
-      }
-
-      if (!data || data.status_code === 34) return null;
-
-      let title = data.title || data.name || 'Unknown Title';
-      let year = (data.release_date || data.first_air_date || '').slice(0, 4);
-
-      // If TV and only season is provided
-      if (type === 'tv' && season && season !== "0") {
-        title = `${data.name} - Season ${season}`;
-      }
-
-      return { title, year };
-    }
-
+    // --- Backend communication (hide API from frontend) ---
     async function fetchData() {
+      if (!mathSolved) {
+        showMathCaptcha();
+        return;
+      }
       const tmdbId = document.getElementById('tmdbId').value.trim();
       let season = document.getElementById('season').value.trim();
       let episode = document.getElementById('episode').value.trim();
@@ -686,30 +826,25 @@
       spinner.style.display = 'block';
 
       try {
-        // If both are 0 or empty, treat as movie (clear season/episode for API path)
-        let isMovie = (!season && !episode) || (season === "0" && episode === "0");
-        const tmdbInfo = await fetchTmdbInfo(tmdbId, season, episode);
-
-        const encryptedId = btoa(tmdbId);
-        let apiPath = `/meepet/${atob(encryptedId)}`;
-        if (!isMovie && season && episode && season !== "0" && episode !== "0") {
-          apiPath += `/${season}/${episode}`;
-        }
-        const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(`https://hahoy.onrender.com${apiPath}`);
-
-        const res = await fetch(proxyUrl);
-        if (!res.ok) throw new Error('CORS error or failed to fetch');
-
-        const raw = await res.json();
-        const apiData = JSON.parse(raw.contents);
+        // Instead of calling the API directly, call your backend endpoint
+        // Example: POST /api/download with { tmdbId, season, episode }
+        // Your backend should handle the real API call and return the data
+        let payload = { tmdbId, season, episode };
+        const res = await fetch('/api/download', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Failed to fetch from backend');
+        const apiData = await res.json();
 
         dialog.innerHTML = '';
 
-        // Show TMDb info at the top
-        if (tmdbInfo) {
+        // Show TMDb info at the top (optional: you can fetch this on backend too)
+        if (apiData.title) {
           dialog.innerHTML += `<div style="margin-bottom:1em;">
-            <strong style="font-size:1.25em;color:var(--primary);">${tmdbInfo.title}</strong>
-            ${tmdbInfo.year ? `<span style="color:var(--text-muted);font-size:1.1em;"> (${tmdbInfo.year})</span>` : ''}
+            <strong style="font-size:1.25em;color:var(--primary);">${apiData.title}</strong>
+            ${apiData.year ? `<span style="color:var(--text-muted);font-size:1.1em;"> (${apiData.year})</span>` : ''}
             ${(season && episode && season !== "0" && episode !== "0") ? `<span style="color:var(--primary);font-size:1.1em;"> &mdash; S${season}E${episode}</span>` : (season && season !== "0" ? `<span style="color:var(--primary);font-size:1.1em;"> &mdash; Season ${season}</span>` : '')}
           </div>`;
         }
@@ -763,15 +898,21 @@
         dialog.style.display = 'block';
         dialog.innerHTML = `<p style='color: var(--danger); font-weight: bold;'>Error: ${err.message}</p>`;
       }
+      mathSolved = false; // Require captcha for next request
     }
 
-    function quickFill(id, season, episode) {
-      document.getElementById('tmdbId').value = id;
-      document.getElementById('season').value = season || '';
-      document.getElementById('episode').value = episode || '';
-      fetchData();
+    // Remove duplicate subtitles by lan+url
+    function uniqueSubtitles(subs) {
+      const seen = new Set();
+      return subs.filter(sub => {
+        const key = (sub.lan || '') + (sub.url || '');
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
     }
 
+    // Search TMDb (frontend only, not protected)
     async function searchTmdb() {
       const query = document.getElementById('searchInput').value.trim();
       const resultsDiv = document.getElementById('searchResults');
@@ -818,28 +959,15 @@
       if (type === 'movie') {
         document.getElementById('season').value = '';
         document.getElementById('episode').value = '';
-        fetchData();
+        showMathCaptcha();
       } else if (type === 'tv') {
-        // Prompt for season/episode
         let season = prompt(`Enter season number for "${name || 'this TV show'}":`);
         if (!season || isNaN(season) || Number(season) < 1) return alert('Invalid season.');
         let episode = prompt(`Enter episode number for season ${season}:`);
         if (!episode || isNaN(episode) || Number(episode) < 1) return alert('Invalid episode.');
-        // Check if season/episode exists
-        checkTvEpisode(id, season, episode, name);
-      }
-    }
-
-    async function checkTvEpisode(id, season, episode, name) {
-      const apiKey = '4047600e7b714de665db30e862139d92';
-      const url = `https://api.themoviedb.org/3/tv/${id}/season/${season}/episode/${episode}?api_key=${apiKey}`;
-      const res = await fetch(url);
-      if (res.ok) {
         document.getElementById('season').value = season;
         document.getElementById('episode').value = episode;
-        fetchData();
-      } else {
-        alert(`Episode S${season}E${episode} not found for "${name}".`);
+        showMathCaptcha();
       }
     }
   </script>
