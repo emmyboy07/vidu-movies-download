@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2316981189550533"
+     crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIDU API - Free Movie & TV Download Links + Subtitles | Fast TMDb Tool</title>
   <meta name="description" content="VIDU API lets you instantly fetch download links and subtitles for movies and TV shows using TMDb ID. Fast, free, and developer-friendly.">
@@ -19,8 +21,7 @@
       --primary: #00ffcc;
       --primary-dark: #00ddb3;
       --bg: #10151a;
-      --glass: rgba(24, 31, 31, 0.85);
-      --glass-blur: blur(16px);
+      --glass: rgba(24,31,31,0.85);
       --border: #00ffcc44;
       --shadow: 0 8px 32px 0 #000a;
       --radius: 1.5rem;
@@ -32,12 +33,12 @@
       --accent: #00ffcc;
       --danger: #ff4d4d;
     }
+
     /* Base responsive setup */
     html {
       font-size: 16px;
       scroll-behavior: smooth;
     }
-
     html, body {
       min-width: 0;
       width: 100%;
@@ -47,11 +48,166 @@
       padding: 0;
     }
 
-    body {
-      box-sizing: border-box;
-      width: 100vw;
+    /* Standard input field styling */
+    input {
+      background: var(--input-bg);
+      border: 1.5px solid var(--input-border);
+      border-radius: 0.9rem;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      font-size: 1.1rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+    input:focus {
+      border-color: var(--input-focus);
+    }
+
+    /* Button styling already in place applies to recaptcha OK button too */
+    button {
+      background: var(--primary);
+      color: #000;
+      border: none;
+      border-radius: 0.9rem;
+      padding: 1.1rem 2.1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Input-box styling (side-by-side layout on mobile) */
+    .input-box {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem auto;
+      width: 90%;
+      max-width: 900px;
+      justify-content: center;
+    }
+    .input-box input, 
+    .input-box button {
+      flex: 1;
+      min-width: 0;
+      max-width: 200px;
+      padding: 1.1rem 1.3rem;
+      margin: 0;
+      font-size: 1.13rem;
+    }
+    @media (max-width: 768px) {
+      .input-box {
+        flex-direction: row !important;
+      }
+      .input-box input, 
+      .input-box button {
+        width: auto;
+      }
+    }
+
+    /* Math captcha styling */
+    #math-captcha {
+      width: 90%;
+      max-width: 400px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: var(--glass);
+      border-radius: 0.7em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    #math-captcha input {
+      width: 80px;
+      padding: 0.3em 0.7em;
+      border: 1px solid var(--primary);
+      border-radius: 0.4em;
+      color: var(--text);
+      background: var(--input-bg);
+    }
+    #math-captcha button {
+      padding: 0.4em 1em;
+      border-radius: 0.5em;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Download dialog styling */
+    .dialog {
+      margin-top: 2.5rem;
+      padding: 2.5rem 2rem;
+      background: var(--glass);
+      border: 2.5px solid var(--primary);
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 40px var(--primary-dark), 0 2px 32px #000a;
+      color: var(--text);
+      font-size: 1.18rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      display: none;
+      position: relative;
+      z-index: 30;
+      animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Other CSS remains unchanged... */
+    /* Header with Telegram button */
+    header {
+      position: relative;
+      background: transparent;
+      padding: 2.5rem 2rem 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: none;
+      width: 100%;
       max-width: 100vw;
-      overflow-x: hidden;
+    }
+    .telegram-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.2s;
+    }
+    .telegram-btn:hover {
+      background: var(--primary-dark);
+    }
+    .telegram-logo {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+    
+    /* For smaller screens force the row layout even if space is tight */
+    @media (max-width: 768px) {
+      .input-box {
+        flex-direction: row !important;
+      }
+      .input-box input, 
+      .input-box button {
+        width: auto;
+      }
     }
     header {
       background: transparent;
@@ -199,39 +355,20 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 1.1rem;
-      margin-bottom: 1.7rem;
-      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.5rem auto;
       width: 100%;
       max-width: 900px;
+      justify-content: center;
     }
-    .input-box input, .input-box button {
-      margin-bottom: 0;
-      width: auto;
-      min-width: 160px;
-      font-size: 1.13rem;
-      padding: 1.1rem 1.3rem;
-      border-radius: 0.9rem;
-      border: 1.5px solid var(--input-border);
-      background: var(--input-bg);
-      color: var(--text);
-      outline: none;
-      transition: border 0.2s;
-    }
-    .input-box input:focus {
-      border: 1.5px solid var(--input-focus);
-    }
+    .input-box input, 
     .input-box button {
-      background: var(--primary);
-      color: #000;
-      border: none;
-      font-weight: 700;
-      min-width: 130px;
-      transition: background 0.2s;
-      box-shadow: 0 2px 8px #00ffcc22;
-    }
-    .input-box button:hover {
-      background: var(--primary-dark);
+      flex: 1;
+      min-width: 0;
+      max-width: 200px;
+      padding: 1.1rem 1.3rem;
+      margin: 0;
+      font-size: 1.13rem;
     }
     .dialog {
       margin-top: 2.5rem;
@@ -605,6 +742,10 @@
 </head>
 <body>
   <header>
+    <a href="https://t.me/+NZauYqQYdsNmNTA0" target="_blank" class="telegram-btn">
+      <img src="telegram-logo.png" alt="Telegram" class="telegram-logo" />
+      Telegram
+    </a>
     <img src="vidu logo.png" alt="VIDU Logo" class="brand-logo" />
     <div class="brand">VIDU</div>
     <nav>
@@ -630,7 +771,7 @@
 
     <div class="section-title" id="try">Try the Download API</div>
     <div class="input-box">
-      <input type="text" id="tmdbId" placeholder="e.g. 19995 (Avatar)" autofocus />
+      <input type="text" id="tmdbId" placeholder="TMDb ID" autofocus />
       <input type="number" id="season" placeholder="Season (optional)" min="0" />
       <input type="number" id="episode" placeholder="Episode (optional)" min="0" />
       <button onclick="showMathCaptcha()">Download</button>
@@ -649,17 +790,17 @@
       <h2>API Endpoint & Advanced Usage</h2>
       <p>
         <strong>Endpoint:</strong>
-        <code>GET /meepet/{tmdb_id}</code> <br>
-        <code>GET /meepet/{tmdb_id}/{season}/{episode}</code>
+        <code>GET Api/{tmdb_id}</code> <br>
+        <code>GET Api/{tmdb_id}/{season}/{episode}</code>
       </p>
       <ul>
         <li>
-          <b>Movies:</b> Use <code>/meepet/{tmdb_id}</code>.<br>
-          Example: <code>/meepet/293660</code> (Deadpool)
+          <b>Movies:</b> Use <code>Api/{tmdb_id}</code>.<br>
+          Example: <code>Api/293660</code> (Deadpool)
         </li>
         <li>
-          <b>TV Shows:</b> Use <code>/meepet/{tmdb_id}/{season}/{episode}</code>.<br>
-          Example: <code>/meepet/100088/1/1</code> (The Last of Us, Season 1 Episode 1)
+          <b>TV Shows:</b> Use <code>Api/{tmdb_id}/{season}/{episode}</code>.<br>
+          Example: <code>Api/100088/1/1</code> (The Last of Us, Season 1 Episode 1)
         </li>
         <li>
           If <b>season</b> and <b>episode</b> are both <code>0</code> or left blank, the API treats the request as a movie.
@@ -809,11 +950,14 @@
         showMathCaptcha();
         return;
       }
+      
       const tmdbId = document.getElementById('tmdbId').value.trim();
-      let season = document.getElementById('season').value.trim();
-      let episode = document.getElementById('episode').value.trim();
+      const season = document.getElementById('season').value.trim();
+      const episode = document.getElementById('episode').value.trim();
       const dialog = document.getElementById('dialog');
-      dialog.style.display = 'none';
+      
+      // Show spinner while loading
+      dialog.style.display = 'block';
       dialog.innerHTML = '<div id="spinner" class="spinner"></div>';
 
       if (!tmdbId) {
@@ -821,52 +965,52 @@
         return;
       }
 
-      dialog.style.display = 'block';
-      const spinner = document.getElementById('spinner');
-      spinner.style.display = 'block';
-
       try {
-        // Instead of calling the API directly, call your backend endpoint
-        // Example: POST /api/download with { tmdbId, season, episode }
-        // Your backend should handle the real API call and return the data
-        let payload = { tmdbId, season, episode };
-        const res = await fetch('/api/download', {
+        // Use your backend endpoint
+        const response = await fetch('http://localhost:3000/api/download', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify({ tmdbId, season, episode })
         });
-        if (!res.ok) throw new Error('Failed to fetch from backend');
-        const apiData = await res.json();
+        if (!response.ok) throw new Error('Failed to fetch data');
 
-        dialog.innerHTML = '';
+        const data = await response.json();
+        let html = '';
 
-        // Show TMDb info at the top (optional: you can fetch this on backend too)
-        if (apiData.title) {
-          dialog.innerHTML += `<div style="margin-bottom:1em;">
-            <strong style="font-size:1.25em;color:var(--primary);">${apiData.title}</strong>
-            ${apiData.year ? `<span style="color:var(--text-muted);font-size:1.1em;"> (${apiData.year})</span>` : ''}
-            ${(season && episode && season !== "0" && episode !== "0") ? `<span style="color:var(--primary);font-size:1.1em;"> &mdash; S${season}E${episode}</span>` : (season && season !== "0" ? `<span style="color:var(--primary);font-size:1.1em;"> &mdash; Season ${season}</span>` : '')}
+        // Display title and year. If TV show, also display season and episode numbers.
+        if (data.title) {
+          html += `<div style="margin-bottom:1em;">
+            <strong style="font-size:1.25em;color:var(--primary);">${data.title}</strong>
+            ${data.year ? `<span style="color:var(--text-muted);font-size:1.1em;"> (${data.year})</span>` : ''}
+            ${
+              (season && episode && season !== "0" && episode !== "0") 
+              ? `<span style="color:var(--primary);font-size:1.1em;"> — Season ${season}, Episode ${episode}</span>`
+              : ''
+            }
           </div>`;
+          if (data.episodeTitle) {
+            html += `<div style="margin-bottom:1em;">
+              <span style="color:var(--primary);font-size:1.1em;">Episode Title: ${data.episodeTitle}</span>
+            </div>`;
+          }
         }
 
-        if (Array.isArray(apiData.streams) && apiData.streams.length > 0) {
-          dialog.innerHTML += '<h3>Download Options:</h3>';
-          apiData.streams.forEach((stream, idx) => {
-            let size = stream.size ? Number(stream.size) : 0;
-            let sizeStr = size > 0 ? (size > 1024 * 1024 * 1024
+        if (Array.isArray(data.streams) && data.streams.length > 0) {
+          html += '<h3>Download Options:</h3>';
+          data.streams.forEach(stream => {
+            const size = stream.size ? Number(stream.size) : 0;
+            const sizeStr = size > 0 ? (size > 1024 * 1024 * 1024
               ? (size / (1024 * 1024 * 1024)).toFixed(2) + ' GB'
               : (size / (1024 * 1024)).toFixed(2) + ' MB') : 'Unknown';
-            let duration = stream.duration ? Number(stream.duration) : 0;
-            let durationStr = duration > 0
+            const duration = stream.duration ? Number(stream.duration) : 0;
+            const durationStr = duration > 0
               ? new Date(duration * 1000).toISOString().substr(11, 8)
               : 'Unknown';
-            let quality = stream.resolutions || stream.quality || 'Unknown';
+            const quality = stream.resolutions || stream.quality || 'Unknown';
 
-            dialog.innerHTML += `
+            html += `
               <div class='link-item'>
-                <a href="${stream.url}" target="_blank">
-                  Download (${quality})
-                </a>
+                <a href="${stream.url}" target="_blank">Download (${quality})</a>
                 <span style="color:var(--text-muted); font-size:0.98em;">
                   &nbsp;| Size: ${sizeStr} | Duration: ${durationStr}
                 </span>
@@ -874,26 +1018,29 @@
             `;
           });
 
-          // Collect all subtitles from all streams, remove duplicates
+          // Process subtitles and remove duplicates
           let allSubtitles = [];
-          apiData.streams.forEach(stream => {
+          data.streams.forEach(stream => {
             if (Array.isArray(stream.subtitles)) {
               allSubtitles = allSubtitles.concat(stream.subtitles);
             }
           });
           allSubtitles = uniqueSubtitles(allSubtitles);
-
-          dialog.innerHTML += '<h3>Subtitles:</h3>';
+          html += '<h3>Subtitles:</h3>';
           if (allSubtitles.length > 0) {
             allSubtitles.forEach(sub => {
-              dialog.innerHTML += `<div class='link-item'><a href="${sub.url}" target="_blank">${sub.lanName || sub.lan || 'Subtitle'}</a></div>`;
+              html += `<div class='link-item'><a href="${sub.url}" target="_blank">${sub.lanName || sub.lan || 'Subtitle'}</a></div>`;
             });
           } else {
-            dialog.innerHTML += `<p style="color:var(--text-muted);">No subtitles found.</p>`;
+            html += `<p style="color:var(--text-muted);">No subtitles found.</p>`;
           }
         } else {
-          dialog.innerHTML = `<p style="color:var(--danger);font-weight:bold;">No data found.</p>`;
+          html = `<p style="color:var(--danger);font-weight:bold;">No data found.</p>`;
         }
+        
+        // Update dialog with full details
+        dialog.innerHTML = html;
+        dialog.style.display = 'block';
       } catch (err) {
         dialog.style.display = 'block';
         dialog.innerHTML = `<p style='color: var(--danger); font-weight: bold;'>Error: ${err.message}</p>`;
