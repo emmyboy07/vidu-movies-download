@@ -972,8 +972,8 @@
       }
 
       try {
-        // Use your backend endpoint
-        const response = await fetch('http://localhost:3000/api/download', {
+        // Use your production backend endpoint
+        const response = await fetch('https://vidu-srp6.onrender.com/api/download', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ tmdbId, season, episode })
@@ -983,7 +983,7 @@
         const data = await response.json();
         let html = '';
 
-        // Display title and year. If TV show, also display season and episode numbers.
+        // Display title, year, and (if applicable) season and episode numbers
         if (data.title) {
           html += `<div style="margin-bottom:1em;">
             <strong style="font-size:1.25em;color:var(--primary);">${data.title}</strong>
